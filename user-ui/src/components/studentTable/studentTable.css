@@ -1,0 +1,36 @@
+.modal-content {
+    background-color: #2c3e50; /* Set the background color */
+    color: white; /* Set text color */
+  }
+  
+  .modal-header {
+    border-bottom: none; /* Remove header border */
+  }
+  
+  .modal-body {
+    padding: 20px; /* Add padding */
+  }
+  
+  /* Style form inputs */
+  .form-control {
+    background-color: #34495e; /* Set input background color */
+    color: white; /* Set input text color */
+    border-color: #1abc9c; /* Set input border color */
+  }
+  
+  .form-control:focus {
+    border-color: #16a085; /* Set focused input border color */
+    box-shadow: none; /* Remove box-shadow on focus */
+  }
+  
+  /* Style submit button */
+  .btn-primary {
+    background-color: #3498db; /* Set button background color */
+    border-color: #3498db; /* Set button border color */
+    color: white; /* Set button text color */
+  }
+  
+  .btn-primary:hover {
+    background-color: #2980b9; /* Change button background color on hover */
+    border-color: #2980b9; /* Change button border color on hover */
+  }

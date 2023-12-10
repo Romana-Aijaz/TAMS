@@ -1,39 +1,48 @@
 .headerContainer {
-    height: 100px;
+  height: 100px;
   width: 100%;
   background: linear-gradient(to bottom, #1c2331, #000); 
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribute content to both ends */
+  justify-content: flex-end;
   position: sticky;
   top: 0;
   z-index: 999;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  padding: 0 20px; /* Adjust padding for content */
+
+  /* Added media query for responsiveness */
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    height: auto; /* Allow the container to adjust its height */
+  }
 }
-.headerContent {
-    margin-left: 20px; /* Adjust spacing if needed */
-    color: white; /* Text color */
-    font-size: 20px; /* Adjust the font size */
+
+.headerLinks ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  /* Updated for responsiveness */
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack links vertically on small screens */
+    text-align: center; /* Center align links */
   }
-  
-  .headerLinks ul {
-    list-style: none;
-    display: flex;
-    margin-right: 20px; /* Adjust spacing if needed */
-    margin-left: 1200px;
-  }
-  
-  .headerLinks ul li {
-    margin-left: 50px; /* Adjust spacing between links */
-  }
-  
-  .headerLinks ul li a {
-    color: white; /* Link color */
-    text-decoration: none;
-    font-size: 16px; /* Adjust the font size */
-  }
-  
-  .headerLinks ul li a:hover {
-    text-decoration: underline; /* Hover effect */
-  }
+}
+
+.headerLinks ul li {
+  margin: 0 15px; /* Adjust spacing between links */
+}
+
+.headerLinks ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.headerLinks ul li a:hover {
+  text-decoration: underline;
+}

@@ -5,7 +5,7 @@ import
   BsListCheck, BsMenuButtonWideFill, BsFillGearFill}
  from 'react-icons/bs'
 
-function Sidebar({openSidebarToggle, OpenSidebar}) {
+function Sidebar({openSidebarToggle, OpenSidebar, isAdmin}) {
   return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
         <div className='sidebar-title'>
@@ -31,16 +31,23 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                     <BsFillGrid3X3GapFill className='icon'/> Categories
                 </a>
             </li>
-            <li className='sidebar-list-item'>
-                <a href="">
-                    <BsPeopleFill className='icon'/> Customers
+            <li className='sidebar-list-item' >
+
+                <a href="/admin">
+                    <BsFillGrid3X3GapFill className='icon' /> Admins
                 </a>
             </li>
-            <li className='sidebar-list-item'>
-                <a href="">
-                    <BsListCheck className='icon'/> Inventory
+            {isAdmin ?  <li className='sidebar-list-item'>
+                <a href="/student">
+                    <BsPeopleFill className='icon'/> Students
                 </a>
-            </li>
+            </li> : null}
+            {isAdmin ?
+            <li className='sidebar-list-item'>
+                <a href="/teacher">
+                    <BsListCheck className='icon'/> Teachers
+                </a>
+            </li> : null}
             <li className='sidebar-list-item'>
                 <a href="">
                     <BsMenuButtonWideFill className='icon'/> Reports

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import './signUp.css';
+import { Navigate } from 'react-router-dom';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -8,7 +9,7 @@ export default function SignUp() {
     email: '',
     password: '',
   });
-
+ const [signUp, setSignUp] = useState('')
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -17,15 +18,18 @@ export default function SignUp() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/admin', formData); // Assuming '/api/admin' is the correct endpoint
+      const response = await axios.post('/api/admins/admin', formData); // Assuming '/api/admin' is the correct endpoint
       console.log('New admin created:', response.data);
+      setSignUp(response.data)
       // Handle success, e.g., show a success message or redirect to another page
     } catch (error) {
       console.error('Error creating admin:', error.response.data);
       // Handle error, show an error message, etc.
     }
   };
-
+ if (signUp) {
+ return <Navigate to='/login' />
+ }
   return (
     <div className='container'>
       <form className='form' onSubmit={handleSubmit}>
@@ -44,7 +48,7 @@ export default function SignUp() {
         </div>
         <button type='submit'>Sign Up</button>
         <p className='form-text'>
-          Already have an account? <a href='/login'>Login</a>
+          <div style={{color: 'white'}}> Already have an account?</div> <a href='/login'>Login</a>
         </p>
       </form>
     </div>
