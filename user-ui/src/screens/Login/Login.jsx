@@ -4,6 +4,8 @@ import './login.css';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { Navigate } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
+
 export default function Login() {
   const [formData, setFormData] = useState({
     username: '',
@@ -13,6 +15,16 @@ export default function Login() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const handleGoogleSignup = () => {
+    try {
+      window.location.href = '/auth/google'; // Redirect to backend endpoint
+    } catch (error) {
+      console.error('Error during Google login:', error);
+    }
+  };
+    const responseGoogle = (response) => {
+      console.log(response); // Handle the Google response
+    };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,9 +75,20 @@ export default function Login() {
           <p className='form-text'>
             Don't have an account? <a href='/'>Sign Up</a>
           </p>
-          <p className='form-text'>
+          <p className='form-text' style={{color: 'white'}}>
             Sign In with Google <a href='/'>Sign In</a>
           </p>
+        
+
+          <GoogleLogin
+        clientId="43066752112-1glskrcn1afnckhgo5dg7euae2meinkh.apps.googleusercontent.com"
+        buttonText="Login with Google"
+        hostedDomain="http://localhost:3001/"
+        redirectUri="http://localhost:5000/auth/google/callback"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={'single_host_origin'}
+      />
         </form>
       </div>
       </div>
