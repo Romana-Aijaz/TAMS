@@ -5,7 +5,8 @@ export default function Header() {
   return <div className="headerContainer">
   <div className="headerLinks">
         <ul>
-          <li><a href="/">Sign Up</a></li>
+          <li><a href="/SignUp">Sign Up</a></li>
+          <li><a href="/login">Log In</a></li>
           <li><Link to="/Home">Home</Link></li>
           <li><a href="#">About Us</a></li>
           <li><a href="#">Careers</a></li>

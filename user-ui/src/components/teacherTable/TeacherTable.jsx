@@ -43,7 +43,7 @@ const TeacherTable = () => {
 
     updatedDetails.teacherId = teacherId;
 
-    const response = await axios.patch('/api/teachers/teacher/' + teacherId, updatedDetails);
+    const response = await axios.patch('/api/teachers/teacher/'+teacherId, updatedDetails);
     setUpdatedTeacher(response.data);
     setShowModal(false);
   };
@@ -90,7 +90,23 @@ const TeacherTable = () => {
         </tbody>
       </table>
       <Modal show={showModal} onHide={handleCloseModal} style={{ marginTop: '200px' }}>
-        {/* Update Modal Content */}
+      <Modal.Header closeButton>
+    <Modal.Title className="text-white">Update Teacher Details</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <form onSubmit={handleModalSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+      <label htmlFor="name" className="text-white">Name:</label>
+      <input type="text" id="name" name="name" className="form-control mb-3" />
+
+      <label htmlFor="email" className="text-white">Email:</label>
+      <input type="email" id="email" name="email" className="form-control mb-3" />
+
+      <label htmlFor="username" className="text-white">Username:</label>
+      <input type="text" id="username" name="username" className="form-control mb-3" />
+
+      <button type="submit" className="btn btn-primary mt-3">Update</button>
+    </form>
+  </Modal.Body>
       </Modal>
       <Modal show={showDelModal} onHide={handleCloseDelModal} style={{ marginTop: '200px' }}>
         <Modal.Header closeButton>

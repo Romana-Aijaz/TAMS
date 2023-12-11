@@ -19,6 +19,7 @@ const AdminDashboard = () => {
   // Use the user data as needed
   console.log(userLogin);
   const [isAdmin, setIsAdmin] = useState(userLogin.isAdmin)
+  const [isSuperAdmin, setIsSuperAdmin] = useState(userLogin.isSuperAdmin)
 
   const OpenSidebar = () => {
     setOpenSidebarToggle(!openSidebarToggle)
@@ -27,7 +28,7 @@ const AdminDashboard = () => {
     <div>
         <Header />
     <div className="admin-dashboard">
-    <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} isAdmin={isAdmin}/>
+    <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} isAdmin={isAdmin} isSuperAdmin={isSuperAdmin}/>
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%',  backgroundColor: '#1d2634'}}>
     <AdminBody />
     </div>

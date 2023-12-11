@@ -11,6 +11,13 @@ export default function Login() {
     username: '',
     password: '',
   });
+
+  const googleAuth = () => {
+		window.open(
+			'http://localhost:5000/auth/google',
+			"_self"
+		);
+	};
   const [userLogin, setUserLogin] = useState('')
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -75,7 +82,7 @@ export default function Login() {
           <p className='form-text'>
             Don't have an account? <a href='/'>Sign Up</a>
           </p>
-          <p className='form-text' style={{color: 'white'}}>
+          <p className='form-text' style={{color: 'white'}} onClick={googleAuth}>
             Sign In with Google <a href='/'>Sign In</a>
           </p>
         

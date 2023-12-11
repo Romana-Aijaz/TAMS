@@ -9,7 +9,7 @@ function Student() {
         <div>
     <Header />
     <div className="admin-dashboard">
-    <Sidebar />
+    <Sidebar isAdmin={true} />
     <StudentForm />
     </div>
     <Footer />

@@ -8,7 +8,7 @@ function Teacher() {
         <div>
     <Header />
     <div className="admin-dashboard">
-    <Sidebar />
+    <Sidebar isAdmin={true}/>
     <TeacherForm />
     </div>
     <Footer />
